@@ -11,6 +11,7 @@ export type SnackItemType = {
 
   // Style
   style?: Object,
+  containerStyle?: Object
   backgroundColor?: string,
   buttonColor?: string,
   textColor?: string,

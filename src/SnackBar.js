@@ -93,6 +93,7 @@ export default class SnackBar extends Component {
 
     // Styles
     style: {},
+    containerStyle: {},
     backgroundColor: STYLE_BANNER_COLOR,
     buttonColor: TEXT_COLOR_ACCENT,
     textColor: 'white'
@@ -198,7 +199,8 @@ export default class SnackBar extends Component {
       cancelText,
       onCancel,
       title,
-      textColor
+      textColor,
+      containerStyle
     } = this.props
 
     const titleElement = <Text style={[styles.text, { color: textColor }]}>{title}</Text>
@@ -207,7 +209,7 @@ export default class SnackBar extends Component {
       return (
         <View>
           {titleElement}
-          <View style={styles.actionRow}>
+          <View style={[styles.actionRow, containerStyle]}>
             { this.renderButton(cancelText, onCancel, styles.flat) }
             { this.renderButton(confirmText, onConfirm, styles.flat) }
           </View>
@@ -217,7 +219,7 @@ export default class SnackBar extends Component {
 
     if (confirmText) {
       return (
-        <View style={styles.inlineRow}>
+        <View style={[styles.inlineRow, containerStyle]}>
           <Text style={[styles.inlineText, { color: textColor }]}>{title}</Text>
           { this.renderButton(confirmText, onConfirm) }
         </View>
